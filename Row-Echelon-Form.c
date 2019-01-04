@@ -21,7 +21,7 @@ int gbs(int m, int n){
 	return d;
 }
 
-//¼ÆËãĞĞ×î´ó¹«Ô¼Êıº¯Êı
+//è®¡ç®—è¡Œæœ€å¤§å…¬çº¦æ•°å‡½æ•°
 int row_maxgys(int** m, int pr, int c) {
 	int i, maxgys = m[pr][0];
 	for (i = 1; i < c; i++) {
@@ -35,7 +35,7 @@ int row_maxgys(int** m, int pr, int c) {
 	return abs(maxgys);
 }
 
-//¼ì²éÄ³ĞĞÊ×¸ö·ÇÁãÔªËØÊÇ·ñÎª¸º£¬Îª¸º·µ»Ø1£¬²»Îª¸º·µ»Ø0
+//æ£€æŸ¥æŸè¡Œé¦–ä¸ªéé›¶å…ƒç´ æ˜¯å¦ä¸ºè´Ÿï¼Œä¸ºè´Ÿè¿”å›1ï¼Œä¸ä¸ºè´Ÿè¿”å›0
 int row_beginWithNegative(int** m, int pr, int c) {
 	int i;
 	for (i = 0; i < c; i++) {
@@ -49,7 +49,7 @@ int row_beginWithNegative(int** m, int pr, int c) {
 	return 0;
 }
 
-//´òÓ¡¾ØÕóº¯Êı
+//æ‰“å°çŸ©é˜µå‡½æ•°
 void printMatrix(int** m, int r, int c) {
 	for (int i = 0; i < r; i++){
 		for (int j = 0; j < c; j++){
@@ -59,7 +59,7 @@ void printMatrix(int** m, int r, int c) {
 	}
 }
 
-//ÅĞ¶Ï¾ØÕóÊÇ·ñÂú×ãĞĞ½×ÌİĞÎÊ½£¬Âú×ã·µ»Ø1£¬²»Âú×ã·µ»Ø0
+//åˆ¤æ–­çŸ©é˜µæ˜¯å¦æ»¡è¶³è¡Œé˜¶æ¢¯å½¢å¼ï¼Œæ»¡è¶³è¿”å›1ï¼Œä¸æ»¡è¶³è¿”å›0
 int isFormed(int** m, int r, int c) {
 	if (r == 1) {
 		return 1;
@@ -86,7 +86,7 @@ int isFormed(int** m, int r, int c) {
 	return 1;
 }
 
-//¾ØÕóÅÅĞòº¯Êı£¬ÓĞÒÆ¶¯·µ»Ø1£¬ÎŞÒÆ¶¯·µ»Ø0
+//çŸ©é˜µæ’åºå‡½æ•°ï¼Œæœ‰ç§»åŠ¨è¿”å›1ï¼Œæ— ç§»åŠ¨è¿”å›0
 int sortMatrix(int** m, int r, int c) {
 	int *zeros = (int *)malloc(sizeof(int)*r), i, j, k, count, moved = 0, t;
 	for (i = 0; i < r; i++) {
@@ -116,41 +116,42 @@ int sortMatrix(int** m, int r, int c) {
 }
 
 int main() {
-	printf("×¢Òâ£º´Ë°æ±¾Îª²âÊÔ°æ±¾£¬¼ÆËã½á¹û¿ÉÄÜ²»ÕıÈ·£¬½ö×÷²Î¿¼£¡\n");
+	printf("æ³¨æ„ï¼šæ­¤ç‰ˆæœ¬ä¸ºæµ‹è¯•ç‰ˆæœ¬ï¼Œè®¡ç®—ç»“æœå¯èƒ½ä¸æ­£ç¡®ï¼Œä»…ä½œå‚è€ƒï¼\n");
 	int row, column, **matrix, i, j, processRowPoint = 0, processColumnPoint = 0, step = 0, *stepPoint = &step, operated = 0, max_gys, min_gbs, muiltiple;
-	printf("ÇëÊäÈë¾ØÕó´óĞ¡[row] [column]:");
-	scanf("%d %d", &row, &column);//»ñÈ¡¾ØÕó´óĞ¡
+	printf("è¯·è¾“å…¥çŸ©é˜µå¤§å°[row] [column]:");
+	scanf("%d %d", &row, &column);//è·å–çŸ©é˜µå¤§å°
 	matrix = (int**)malloc(sizeof(int*)*row);
 	for (i = 0; i < row; i++) {
 		matrix[i] = (int*)malloc(sizeof(int)*column);
-	}//¸ù¾İÓÃ»§ÊäÈë·ÖÅä¶şÎ¬Êı×é¿Õ¼ä
-	printf("ÇëÊäÈë¾ØÕóÔªËØ[element_1] [element_2] ... [element_n]:\n");
+	}//æ ¹æ®ç”¨æˆ·è¾“å…¥åˆ†é…äºŒç»´æ•°ç»„ç©ºé—´
+	printf("è¯·è¾“å…¥çŸ©é˜µå…ƒç´ [element_1] [element_2] ... [element_n]:\n");
 	for (i = 0; i < row; i++){
 		for (j = 0; j < column; j++){
 			scanf("%d", &matrix[i][j]);
 		}
-	}//»ñÈ¡¾ØÕóÔªËØ
-	printf("\n¾ØÕóÔªËØ»ñÈ¡Íê±Ï£¬¾ØÕóÓ¦ÈçÏÂËùÊ¾£º\n");
+	}//è·å–çŸ©é˜µå…ƒç´ 
+	printf("\nçŸ©é˜µå…ƒç´ è·å–å®Œæ¯•ï¼ŒçŸ©é˜µåº”å¦‚ä¸‹æ‰€ç¤ºï¼š\n");
 	printMatrix(matrix, row, column);
-	printf("\nÏÖÔÚ¿ªÊ¼´¦Àí¾ØÕó£¬Ê¹Æä³ÉÎªĞĞ½×ÌİĞÍ¾ØÕó¡£\n");
+	printf("\nç°åœ¨å¼€å§‹å¤„ç†çŸ©é˜µï¼Œä½¿å…¶æˆä¸ºè¡Œé˜¶æ¢¯å‹çŸ©é˜µã€‚\n");
 	if (isFormed(matrix, row, column)) {
-		printf("\n¾ØÕóÒÑ¾­·ûºÏĞĞ½×ÌİĞÎÊ½£¬´¦ÀíÍê±Ï¡£");
+		printf("\nçŸ©é˜µå·²ç»ç¬¦åˆè¡Œé˜¶æ¢¯å½¢å¼ï¼Œå¤„ç†å®Œæ¯•ã€‚");
+		system("pause");
 		exit(0);
 	}
 	while (!isFormed(matrix, row, column)) {
 		operated = 0;
 		if (sortMatrix(matrix, row, column)) {
-			printf("\nStep %d >> Èô¸É´ÎĞĞ½»»»\n", ++step);
+			printf("\nStep %d >> è‹¥å¹²æ¬¡è¡Œäº¤æ¢\n", ++step);
 			printMatrix(matrix, row, column); operated++;
 		}
-		//È·ÈÏÁĞ´¦Àí²Î¿¼
+		//ç¡®è®¤åˆ—å¤„ç†å‚è€ƒ
 		for (i = 0; i < column; i++) {
 			if (matrix[processRowPoint][i] != 0) {
 				processColumnPoint = i;
 				break;
 			}
 		}
-		//¼ì²é¸÷ĞĞÊ×ÏîÊÇ·ñÎª¸º
+		//æ£€æŸ¥å„è¡Œé¦–é¡¹æ˜¯å¦ä¸ºè´Ÿ
 		for (i = 0; i < row; i++) {
 			if (row_beginWithNegative(matrix, i, column)) {
 				for (j = 0; j < column; j++) {
@@ -160,7 +161,7 @@ int main() {
 				printMatrix(matrix, row, column); operated++;
 			}
 		}
-		//¼ì²é¸÷ĞĞÊÇ·ñÓµÓĞ´óÓÚ1µÄ×î´ó¹«Ô¼Êı
+		//æ£€æŸ¥å„è¡Œæ˜¯å¦æ‹¥æœ‰å¤§äº1çš„æœ€å¤§å…¬çº¦æ•°
 		for (i = 0; i < row; i++) {
 			max_gys = row_maxgys(matrix, i, column);
 			if (max_gys >= 2) {
@@ -171,17 +172,17 @@ int main() {
 				printMatrix(matrix, row, column); operated++;
 			}
 		}
-		//¿ªÊ¼´¦Àí
+		//å¼€å§‹å¤„ç†
 		for (i = processRowPoint + 1; i < row; i++) {
-			if (matrix[i][processColumnPoint] && matrix[processRowPoint][processColumnPoint]) {//¼ì²éÊÇ·ñÓĞ0
-				if (matrix[i][processColumnPoint] == matrix[processRowPoint][processColumnPoint]) {//ÏàµÈÔòÏà¼õ
+			if (matrix[i][processColumnPoint] && matrix[processRowPoint][processColumnPoint]) {//æ£€æŸ¥æ˜¯å¦æœ‰0
+				if (matrix[i][processColumnPoint] == matrix[processRowPoint][processColumnPoint]) {//ç›¸ç­‰åˆ™ç›¸å‡
 					for (j = 0; j < column; j++) {
 						matrix[i][j] -= matrix[processRowPoint][j];
 					}
 					printf("\nStep %d >> Row.%d - Row.%d\n", ++step, i + 1, processRowPoint + 1);
 					printMatrix(matrix, row, column); operated++;
 				}
-				else {//²»µÈÔòÏÈ³Ëºó¼õ
+				else {//ä¸ç­‰åˆ™å…ˆä¹˜åå‡
 					min_gbs = gbs(matrix[i][processColumnPoint], matrix[processRowPoint][processColumnPoint]);
 					muiltiple = min_gbs / matrix[i][processColumnPoint];
 					if (muiltiple > 1) {
@@ -205,7 +206,7 @@ int main() {
 				}
 			}
 		}
-		//¼ì²é¸÷ĞĞÊ×ÏîÊÇ·ñÎª¸º
+		//æ£€æŸ¥å„è¡Œé¦–é¡¹æ˜¯å¦ä¸ºè´Ÿ
 		for (i = 0; i < row; i++) {
 			if (row_beginWithNegative(matrix, i, column)) {
 				for (j = 0; j < column; j++) {
@@ -215,7 +216,7 @@ int main() {
 				printMatrix(matrix, row, column); operated++;
 			}
 		}
-		//¼ì²é¸÷ĞĞÊÇ·ñÓµÓĞ´óÓÚ1µÄ×î´ó¹«Ô¼Êı
+		//æ£€æŸ¥å„è¡Œæ˜¯å¦æ‹¥æœ‰å¤§äº1çš„æœ€å¤§å…¬çº¦æ•°
 		for (i = 0; i < row; i++) {
 			max_gys = row_maxgys(matrix, i, column);
 			if (max_gys >= 2) {
@@ -230,7 +231,7 @@ int main() {
 			processRowPoint++;
 		}
 	}
-	printf("\n¾ØÕóÒÑ¾­·ûºÏĞĞ½×ÌİĞÎÊ½£¬´¦ÀíÍê±Ï¡£");
+	printf("\nçŸ©é˜µå·²ç»ç¬¦åˆè¡Œé˜¶æ¢¯å½¢å¼ï¼Œå¤„ç†å®Œæ¯•ã€‚");
 	system("pause");
 	return 0;
 }
